@@ -1,8 +1,8 @@
 name: built_value_in_app_purchase
-description: A new Flutter package project.
+description: Use built_value to work with google's in_app_purchase plugin.
 version: 0.0.1
-author:
-homepage:
+author: Archibald Sheran
+homepage: built_value_in_app_purchase
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
