@@ -1,6 +1,5 @@
 library built_value_in_app_purchase;
 
-import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:in_app_purchase/in_app_purchase.dart' as IAPPlugin;

@@ -1,8 +1,8 @@
 name: built_value_in_app_purchase
 description: Use built_value to work with google's in_app_purchase plugin.
 version: 0.0.1
-author: Archibald Sheran
-homepage: built_value_in_app_purchase
+author: "archie-sh <archibald.sheran@previondo.eu>"
+homepage: https://github.com/archie-sh/built_value_in_app_purchase
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
@@ -30,7 +30,7 @@ flutter:
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
   #
-  # For details regarding assets in packages, see
+  # For details regarding assets in packages, seen
   # https://flutter.dev/assets-and-images/#from-packages
   #
   # An image asset can refer to one or more resolution-specific "variants", see
