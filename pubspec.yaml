@@ -1,6 +1,6 @@
 name: built_value_in_app_purchase
 description: Use built_value to work with google's in_app_purchase plugin.
-version: 1.0.1
+version: 1.0.2
 author: "archie-sh <archibald.sheran@previondo.eu>"
 homepage: https://github.com/archie-sh/built_value_in_app_purchase
 

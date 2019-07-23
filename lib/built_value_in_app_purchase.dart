@@ -1,8 +1,9 @@
 library built_value_in_app_purchase;
 
-import 'package:built_value/built_value.dart';
 import 'package:built_collection/built_collection.dart';
+import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
+import 'package:flutter/foundation.dart';
 import 'package:in_app_purchase/in_app_purchase.dart' as IAPPlugin;
 
 part 'built_value_in_app_purchase.g.dart';
@@ -15,25 +16,31 @@ abstract class PurchaseDetails
   PurchaseDetails._();
 
   factory PurchaseDetails([updates(PurchaseDetailsBuilder b)]) =
-  _$PurchaseDetails;
+      _$PurchaseDetails;
 
   factory PurchaseDetails.fromCustomFactory(
-      IAPPlugin.PurchaseDetails iAPPurchaseDetails) =>
+          IAPPlugin.PurchaseDetails iAPPurchaseDetails) =>
       PurchaseDetails((b) => b
         ..purchaseID = iAPPurchaseDetails.purchaseID
         ..productID = iAPPurchaseDetails.productID
         ..purchaseVerificationData.replace(PurchaseVerificationData().rebuild(
-                (b) => b
+            (b) => b
               ..localVerificationData =
                   iAPPurchaseDetails.verificationData?.localVerificationData
               ..serverVerificationData =
                   iAPPurchaseDetails.verificationData?.serverVerificationData
-              ..source = IAPSource.valueOf(
-                  iAPPurchaseDetails.verificationData?.source.toString())))
+              ..source = iAPPurchaseDetails.verificationData?.source != null
+                  ? IAPSource.valueOf(
+                      describeEnum(iAPPurchaseDetails.verificationData.source))
+                  : null))
         ..transactionDate = iAPPurchaseDetails.transactionDate
-        ..status = PurchaseStatus.valueOf(iAPPurchaseDetails.status?.toString())
+        ..status = iAPPurchaseDetails.status != null
+            ? PurchaseStatus.valueOf(describeEnum(iAPPurchaseDetails.status))
+            : null
         ..error.replace(IAPError().rebuild((b) => b
-          ..source = IAPSource.valueOf(iAPPurchaseDetails.error?.source?.toString())
+          ..source = iAPPurchaseDetails.error?.source != null
+              ? IAPSource.valueOf(describeEnum(iAPPurchaseDetails.error.source))
+              : null
           ..code = iAPPurchaseDetails.error?.code
           ..message = iAPPurchaseDetails.error?.message
           ..details = iAPPurchaseDetails.error?.details?.toString())));
@@ -50,7 +57,6 @@ abstract class PurchaseDetails
   PurchaseStatus get status;
 
   IAPError get error;
-
 }
 
 abstract class PurchaseVerificationData
@@ -62,8 +68,8 @@ abstract class PurchaseVerificationData
   PurchaseVerificationData._();
 
   factory PurchaseVerificationData(
-      [updates(PurchaseVerificationDataBuilder b)]) =
-  _$PurchaseVerificationData;
+          [updates(PurchaseVerificationDataBuilder b)]) =
+      _$PurchaseVerificationData;
 
   @nullable
   String get localVerificationData;
@@ -113,8 +119,7 @@ class PurchaseStatus extends EnumClass {
 }
 
 abstract class IAPError implements Built<IAPError, IAPErrorBuilder> {
-  static Serializer<IAPError> get serializer =>
-      _$iAPErrorSerializer;
+  static Serializer<IAPError> get serializer => _$iAPErrorSerializer;
 
   IAPError._();
 
