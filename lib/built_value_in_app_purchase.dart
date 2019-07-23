@@ -28,12 +28,12 @@ abstract class PurchaseDetails
                   iAPPurchaseDetails.verificationData?.localVerificationData
               ..serverVerificationData =
                   iAPPurchaseDetails.verificationData?.serverVerificationData
-              ..source = IAPSource._(
+              ..source = IAPSource.valueOf(
                   iAPPurchaseDetails.verificationData?.source.toString())))
         ..transactionDate = iAPPurchaseDetails.transactionDate
-        ..status = PurchaseStatus._(iAPPurchaseDetails.status?.toString())
+        ..status = PurchaseStatus.valueOf(iAPPurchaseDetails.status?.toString())
         ..error.replace(IAPError().rebuild((b) => b
-          ..source = IAPSource._(iAPPurchaseDetails.error?.source?.toString())
+          ..source = IAPSource.valueOf(iAPPurchaseDetails.error?.source?.toString())
           ..code = iAPPurchaseDetails.error?.code
           ..message = iAPPurchaseDetails.error?.message
           ..details = iAPPurchaseDetails.error?.details?.toString())));
