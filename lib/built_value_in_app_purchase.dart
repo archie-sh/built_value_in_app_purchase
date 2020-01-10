@@ -137,3 +137,14 @@ abstract class IAPError implements Built<IAPError, IAPErrorBuilder> {
   @nullable
   String get details;
 }
+
+class Platform extends EnumClass {
+  const Platform._(String name) : super(name);
+
+  static const Platform ios = _$ios;
+  static const Platform android = _$android;
+
+  static BuiltSet<Platform> get values => _$platformValues;
+
+  static Platform valueOf(String name) => _$platformValueOf(name);
+}

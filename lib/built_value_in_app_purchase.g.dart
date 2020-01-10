@@ -50,6 +50,26 @@ final BuiltSet<PurchaseStatus> _$purchaseStatusValues =
   _$error,
 ]);
 
+const Platform _$ios = const Platform._('ios');
+const Platform _$android = const Platform._('android');
+
+Platform _$platformValueOf(String name) {
+  switch (name) {
+    case 'ios':
+      return _$ios;
+    case 'android':
+      return _$android;
+    default:
+      throw new ArgumentError(name);
+  }
+}
+
+final BuiltSet<Platform> _$platformValues =
+    new BuiltSet<Platform>(const <Platform>[
+  _$ios,
+  _$android,
+]);
+
 Serializer<PurchaseDetails> _$purchaseDetailsSerializer =
     new _$PurchaseDetailsSerializer();
 Serializer<PurchaseVerificationData> _$purchaseVerificationDataSerializer =

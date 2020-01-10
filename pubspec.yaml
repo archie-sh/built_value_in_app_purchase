@@ -1,6 +1,6 @@
 name: built_value_in_app_purchase
 description: Use built_value to work with google's in_app_purchase plugin.
-version: 1.0.2
+version: 1.0.5
 author: "archie-sh <archibald.sheran@previondo.eu>"
 homepage: https://github.com/archie-sh/built_value_in_app_purchase
 
@@ -10,14 +10,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  built_value: ^6.7.0
-  in_app_purchase: ^0.2.0+6
+  built_value: ^7.0.2
+  in_app_purchase: ^0.3.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   build_runner: ^1.0.0
-  built_value_generator: ^6.7.0
+  built_value_generator: ^7.0.4
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
